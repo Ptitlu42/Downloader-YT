@@ -117,14 +117,16 @@ if choice == "4":
         
     choice = input ("Choix?\n"+
                     "0: Quitter")
-    
-        
+            
     match choice:
             case "0":
                 pass
             
-            case "1":               
-                pass
+            case "1":            
+                element = s.results[1]  
+                stream = element.id
+                
+                stream.download(SAVE_PATH)
                 
             case "2":
                 pass
