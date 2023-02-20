@@ -10,6 +10,7 @@ locale.setlocale(locale.LC_NUMERIC, 'fr_FR.UTF-8')
 #https://www.youtube.com/channel/UCrQjCrWOS63rBxO15TA5CfQ
 
 SAVE_PATH = "C:\\Users\\POEC-REN-09\\Desktop\\Downloader YT\\path"
+URL = "https://www.youtube.com/watch?v="
 
 ####----REFACTOR----####
 def id_to_url(element):
@@ -17,7 +18,7 @@ def id_to_url(element):
     element = str(element)
     element = element[-12:]                
     element = element[0:11]                            
-    element = "http://youtube.com/watch?v=" + element
+    element = URL + element
     return element
 
 def url_to_dl(SAVE_PATH, yt, element):
@@ -25,6 +26,8 @@ def url_to_dl(SAVE_PATH, yt, element):
     stream = YouTube(element)
     stream = stream.streams.filter(only_audio=True).first()
     stream.download(output_path=SAVE_PATH)
+    
+
 
 ####----SCRIPT----####
 print("[[YOUTUBE DOWNLOADER]]\n")
@@ -102,6 +105,8 @@ if choice == "3":
         increm = increm + 1
     
     
+
+
 if choice == "4":
     search = input("Recherche:\n\n")
     increm = 1
@@ -123,224 +128,14 @@ if choice == "4":
     choice = input ("N: Choix?\n"+
                     "0: Quitter")
             
-    match choice:
-            case "0":
-                pass
-            
-            case "1":         
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
+    choice = int(choice) - 2
+    element = results[int(choice)]       
+    element = id_to_url(element)
+    yt = YouTube(element)
                 
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
+    url_to_dl(SAVE_PATH, yt, element)
+    print(f"Téléchargement de {yt.author}"+
                       f"  {yt.title}   réussi.")
-                
-                
-            case "2":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-                
-            case "4":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "5":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "5":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "6":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "7":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "8":
-               
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-                
-            case "9":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "11":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "12":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "13":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "14":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "15":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "16":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "17":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-                
-            case "18":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-            
-            case "19":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-            
-            case "20":
-                
-                choice = int(choice) - 2
-                element = results[int(choice)]       
-                element = id_to_url(element)
-                yt = YouTube(element)
-                
-                url_to_dl(SAVE_PATH, yt, element)
-                print(f"Téléchargement de {yt.author}"+
-                      f"  {yt.title}   réussi.")
-            
-
-        
-
     
     
         
