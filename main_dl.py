@@ -101,7 +101,7 @@ if choice == "4":
     search = input("Recherche:")
     increm = 1
     s = Search(search)
-    resultlen = len(s.results)
+    # resultlen = len(s.results)
     s.results[:19]
     
     for element in s.results:
@@ -111,15 +111,18 @@ if choice == "4":
         increm = increm + 1
         
         
-        choice = input(f"{increm}:"
+        print(f"{increm}:"
                f"Auteur: {author}  "+
                f"Titre: {title}\n")
         
-        dlelement = yt.url
+    choice = input ("Choix?\n"+
+                    "0: Quitter")
+    
         
-        print(dlelement)
-        
-        match choice:
+    match choice:
+            case "0":
+                pass
+            
             case "1":               
                 pass
                 
