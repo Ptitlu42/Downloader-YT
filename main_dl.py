@@ -11,6 +11,19 @@ locale.setlocale(locale.LC_NUMERIC, 'fr_FR.UTF-8')
 
 SAVE_PATH = "C:\\Users\\POEC-REN-09\\Desktop\\Downloader YT\\path"
 
+####----REFACTOR----####
+def id_to_url(element):
+    element = element[-12:]                
+    element = element[0:11]                            
+    element = "http://youtube.com/watch?v=" + element
+    return element
+
+def url_to_dl(SAVE_PATH, yt, element):
+    stream = YouTube(element)
+    stream = yt.streams.filter(only_audio=True).first()
+    stream.download(output_path=SAVE_PATH)
+
+####----SCRIPT----####
 print("[[YOUTUBE DOWNLOADER]]\n")
 
 choice = input("1: Télécharger une video.\n"+
@@ -97,12 +110,16 @@ if choice == "3":
     #     print(increm)
     #     increm = increm + 1
     
+
+
+
+
 if choice == "4":
-    search = input("Recherche:")
+    search = input("Recherche:\n\n")
     increm = 1
     s = Search(search)
     # resultlen = len(s.results)
-    s.results[:19]
+    s.results = s.results[:20]
     
     for element in s.results:
         yt = element
@@ -115,7 +132,7 @@ if choice == "4":
                f"Auteur: {author}  "+
                f"Titre: {title}\n")
         
-    choice = input ("Choix?\n"+
+    choice = input ("N: Choix?\n"+
                     "0: Quitter")
             
     match choice:
@@ -123,13 +140,20 @@ if choice == "4":
                 pass
             
             case "1":            
-                element = s.results[1]  
-                stream = element.id
+                element = str(s.results[1])               
+                element = id_to_url(element)
+                url_to_dl(SAVE_PATH, yt, element)
+                print(f"Téléchargement de {yt.author}"+
+                      f"  {yt.title}   réussi.")
                 
-                stream.download(SAVE_PATH)
                 
             case "2":
-                pass
+                element = str(s.results[2])               
+                element = id_to_url(element)
+                url_to_dl(SAVE_PATH, yt, element)
+                print(f"Téléchargement de {yt.author}"+
+                      f"  {yt.title}   réussi.")
+                
                 
             case "4":
                 pass
@@ -181,8 +205,10 @@ if choice == "4":
             
             case "20":
                 pass
+            
+
         
-        
+
     
     
         
